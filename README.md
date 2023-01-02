@@ -22,6 +22,8 @@
 
 ● It is not mandatory to implement any other entities which are not mentioned here, like products or payments etc.
 
+
+
 ## Hints
 ● Identify the entities
 
@@ -30,12 +32,14 @@
 ● Identify things which can be done asynchronuosly
 
 
+
 ## Expectations
 ● Clean, standard REST APIs
 
 ● Well defined entities. You can use any database of your choice
 
 ● Junit test cases
+
 
 
 ### Nice to have
@@ -47,6 +51,6 @@ You dont need to actually send the emails. It can be a dummy method like this :
 
 void sendMail() {
 
-System.out.println("Sent mail to customer");
+    System.out.println("Sent mail to customer");
 
 }
