@@ -36,3 +36,17 @@
 ● Well defined entities. You can use any database of your choice
 
 ● Junit test cases
+
+
+### Nice to have
+● Cron job to send emails to customer when they are approaching thegold/platinum barriers. 
+
+For e.g., email to customer when a customer has 9 orders: "You have placed 9 orders with us. Buy one more stuff and you will be promoted to Gold customer and enjoy 10% discounts!"
+
+You dont need to actually send the emails. It can be a dummy method like this :
+
+void sendMail() {
+
+System.out.println("Sent mail to customer");
+
+}
