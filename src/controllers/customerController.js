@@ -143,7 +143,7 @@ const getcustomer = async function (req, res) {
         let customerId = req.params.customerId;
 
         //----------------------------- Getting customer Detail -----------------------------//
-        let customerData = await customerModel.findById(customerId).select({ fname: 1, lname: 1, email: 1, noOfOrder: 1, customerType: 1, totalDiscount: 1 });
+        let customerData = await customerModel.findById(customerId).select({ fname: 1, lname: 1, email: 1, noOfOrder: 1, customerType: 1, totalDiscount: 1, orderDiscount: 1 });
         return res.status(200).send({ status: true, message: "customer profile details", data: customerData });
     }
     catch (error) {

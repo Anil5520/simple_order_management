@@ -66,7 +66,14 @@ const createOrder = async (req, res) => {
 
         //----------------------------- creating order -----------------------------//
         let createdOrder = await orderModel.create(data);
-        await customerModel.findByIdAndUpdate({ _id: findCustomer._id }, { $set: { customerType, noOfOrder }, totalDiscount: findCustomer.totalDiscount + totalDis });
+
+        //----------------------------- updating customer details -----------------------------//
+        if (data.discount > 0) {
+            await customerModel.findByIdAndUpdate({ _id: findCustomer._id }, { $set: { customerType, noOfOrder }, totalDiscount: findCustomer.totalDiscount + totalDis, $push: { orderDiscount: { productName, id: createdOrder._id, discount: totalDis } } });
+        } else {
+            await customerModel.findByIdAndUpdate({ _id: findCustomer._id }, { $set: { customerType, noOfOrder }, totalDiscount: findCustomer.totalDiscount + totalDis });
+        }
+
         return res.status(201).send({ status: true, message: "Order Placed!!", data: createdOrder });
     }
     catch (error) {
